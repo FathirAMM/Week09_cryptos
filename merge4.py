@@ -392,7 +392,8 @@ st.sidebar.header(':blue[ ⚙️ Input parameters]', divider='rainbow')
 # Sidebar for User Input
 with st.sidebar:
     symbols_to_plot = st.multiselect("Select symbols:", exchange.load_markets().keys())
-    time_periods_to_plot = st.multiselect("Select time periods:", ["1d", "1m", "5m", "15m", "1h", "4h"])
+    #time_periods_to_plot = st.multiselect("Select time periods:", ["1d", "1m", "5m", "15m", "1h", "4h"])
+    time_periods_to_plot = st.multiselect("Select time periods:", ["1M","1w","1d","12h","6h","4h","2h","1h","30m"])
     candles_to_plot = st.slider("Select the number of candles to plot:", min_value=1, max_value=1000, value=720)
     smooth_factor = st.number_input("Select the smoothing factor", min_value=1, max_value=100, value=6)
     swing_percent = st.number_input("Select swing percentage:", min_value=1, max_value=10, value=5)
