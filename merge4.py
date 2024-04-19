@@ -102,7 +102,8 @@ def get_short_swing_low(lows, swing_percent):
 #@st.cache_data
 # Function to identify fib levels
 def get_fib_retracement(swing_low, swing_high):
-    fibonacci_retracement_levels = [0.382, 0.5, 0.618]
+    #fibonacci_retracement_levels = [0.382, 0.5, 0.618]
+    fibonacci_retracement_levels = [0.5, 0.618,0.764]
     return [round(swing_high - ((1 - level) * (swing_high - swing_low)), 8) for level in fibonacci_retracement_levels]
 
 
@@ -360,8 +361,8 @@ def place_order(symbol, side, price, cost, leverage):
     # Define order parameters
     quantity = round(cost * leverage / price, 4)  # Calculate quantity based on cost, leverage, and price (rounded to 4 decimals)
     inv_side = "sell" if side == "buy" else "buy"  # Determine opposite side for take profit and stop loss orders
-    tp_price = price * (1 - (1 if side == "sell" else -1) * 0.1)  # Calculate take profit price
-    sl_price = price * (1 + (1 if side == "sell" else -1) * 0.1)  # Calculate stop loss price
+    tp_price = price * (1 - (1 if side == "sell" else -1) * 0.01)  # Calculate take profit price
+    sl_price = price * (1 + (1 if side == "sell" else -1) * 0.01)  # Calculate stop loss price
     print(inv_side, "price ->", price, "tp_price ->", tp_price, "sl_price ->", sl_price)
     params = {
         "leverage": leverage,  # Set leverage for the order
