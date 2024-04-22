@@ -361,9 +361,9 @@ def place_order(symbol, side, price, cost, leverage):
     # Define order parameters
     quantity = round(cost * leverage / price, 4)  # Calculate quantity based on cost, leverage, and price (rounded to 4 decimals)
     inv_side = "sell" if side == "buy" else "buy"  # Determine opposite side for take profit and stop loss orders
-    tp_price = price * (1 - (1 if side == "sell" else -1) * 0.01)  # Calculate take profit price
-    sl_price = price * (1 + (1 if side == "sell" else -1) * 0.01)  # Calculate stop loss price
-    print(inv_side, "price ->", price, "tp_price ->", tp_price, "sl_price ->", sl_price)
+    tp_price = price * (1 + (1 if side == "sell" else -1) * 0.01)  # Calculate take profit price
+    sl_price = price * (1 - (1 if side == "sell" else -1) * 0.01)  # Calculate stop loss price
+    print(side, "price ->", price, "tp_price ->", tp_price, "sl_price ->", sl_price)
     params = {
         "leverage": leverage,  # Set leverage for the order
         "isIsolated": "TRUE",  # Use isolated margin
