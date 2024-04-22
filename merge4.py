@@ -373,9 +373,9 @@ def place_order(symbol, side, price, cost, leverage):
         # Place the main limit order
         order = exchange.create_order(symbol, "LIMIT", side, quantity, price, params=params)
 
-        # Place take profit and stop loss orders
-        tp_order = exchange.create_order(symbol, "TAKE_PROFIT", inv_side, quantity, price, params={"stopPrice": tp_price, "reduceOnly": True})
-        sl_order = exchange.create_order(symbol, "STOP", inv_side, quantity, price, params={"stopPrice": sl_price, "reduceOnly": True})
+        # # Place take profit and stop loss orders
+        # tp_order = exchange.create_order(symbol, "TAKE_PROFIT", inv_side, quantity, price, params={"stopPrice": tp_price, "reduceOnly": True})
+        # sl_order = exchange.create_order(symbol, "STOP", inv_side, quantity, price, params={"stopPrice": sl_price, "reduceOnly": True})
 
         print("Orders placed successfully!")
         # print("Main order:", order)
