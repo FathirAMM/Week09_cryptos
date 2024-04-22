@@ -542,14 +542,14 @@ if place_order_clicked and selected_combination is not None:
 
     # Check and place orders for each Fibonacci retracement level
     for order_price in [fib_level_0_382, fib_level_0_5, fib_level_0_618]:
-        if order_price < high_prices[-1] and order_price > last_price:
+    #   if order_price < high_prices[-1] and order_price > last_price:
             result = place_order(selected_symbol, "sell", order_price, place_order_cost, place_order_leverage)
             if result is True:
                 st.success(f"Order placed for {selected_symbol} - {selected_time_period} at {order_price}")
             else:
                 st.error(f"Order failed for {selected_symbol} - {selected_time_period}: {result}")  # Display the reason for failure
-        else:
-            st.warning(f"Order price {order_price} not sufficient for {selected_symbol} - {selected_time_period}")
+        #else:
+        #    st.warning(f"Order price {order_price} not sufficient for {selected_symbol} - {selected_time_period}")
 
 # Check if "View Plot" button is clicked
 if view_plot_clicked and selected_combination is not None:
