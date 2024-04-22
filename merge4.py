@@ -361,8 +361,8 @@ def place_order(symbol, side, price, cost, leverage):
     # Define order parameters
     quantity = round(cost * leverage / price, 4)  # Calculate quantity based on cost, leverage, and price (rounded to 4 decimals)
     inv_side = "sell" if side == "buy" else "buy"  # Determine opposite side for take profit and stop loss orders
-    tp_price = price * (1 + (1 if side == "sell" else -1) * 0.01)  # Calculate take profit price
-    sl_price = price * (1 - (1 if side == "sell" else -1) * 0.01)  # Calculate stop loss price
+    tp_price = price * (1 - (1 if side == "sell" else -1) * 0.01)  # Calculate take profit price
+    sl_price = price * (1 + (1 if side == "sell" else -1) * 0.01)  # Calculate stop loss price
     print(side, "price ->", price, "tp_price ->", tp_price, "sl_price ->", sl_price)
     params = {
         "leverage": leverage,  # Set leverage for the order
@@ -374,8 +374,8 @@ def place_order(symbol, side, price, cost, leverage):
         order = exchange.create_order(symbol, "LIMIT", side, quantity, price, params=params)
 
         # Place take profit and stop loss orders
-        tp_order = exchange.create_order(symbol, "TAKE_PROFIT_MARKET", inv_side, quantity, price, params={"stopPrice": tp_price, "reduceOnly": True})
-        sl_order = exchange.create_order(symbol, "STOP_MARKET", inv_side, quantity, price, params={"stopPrice": sl_price, "reduceOnly": True})
+        tp_order = exchange.create_order(symbol, "TAKE_PROFIT", inv_side, quantity, price, params={"stopPrice": tp_price})
+        sl_order = exchange.create_order(symbol, "STOP", inv_side, quantity, price, params={"stopPrice": sl_price})
 
         print("Orders placed successfully!")
         # print("Main order:", order)
