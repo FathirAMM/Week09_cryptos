@@ -541,7 +541,7 @@ if place_order_clicked and selected_combination is not None:
     last_price, _, _, fib_level_0_382, fib_level_0_5, fib_level_0_618 = fetch_table_data(selected_symbol, selected_time_period)
 
     # Check and place orders for each Fibonacci retracement level
-    for order_price in [fib_level_0_382, fib_level_0_5, fib_level_0_618]:
+    for order_price in [fib_level_0_5, fib_level_0_618]:
         if order_price > high_prices[-1] and order_price > last_price:
             result = place_order(selected_symbol, "sell", order_price, place_order_cost, place_order_leverage)
             if result is True:
@@ -679,7 +679,7 @@ if place_order_clicked and selected_combination is not None:
     last_price, _, _, fib_level_0_382, fib_level_0_5, fib_level_0_618 = fetch_table_data_long(selected_symbol, selected_time_period)
 
     # Check and place orders for each Fibonacci retracement level
-    for order_price in [fib_level_0_382, fib_level_0_5, fib_level_0_618]:
+    for order_price in [fib_level_0_5, fib_level_0_618]:
         if order_price < low_prices[-1] and order_price < last_price:
             result = place_order(selected_symbol, "buy", order_price, place_order_cost, place_order_leverage)
             if result is True:
