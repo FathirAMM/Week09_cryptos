@@ -38,7 +38,7 @@ exchange = ccxt.binance({
     "options": {
         "defaultType": "futures",  # Use "future" for futures contracts
         #"url": {"api": "https://testnet.binancefuture.com"},  # Set testnet API URL
-        "url": {"api": "https://fapi.binance.com"},  # Set testnet API URL
+        "url": {"api": "https://fapi.binance.us"},  # Set testnet API URL
     }
 })
 
@@ -49,7 +49,7 @@ print("testing connection......")
 @st.cache_data
 def fetch_last_price(symbol):
     #resp = requests.get(url=f"https://testnet.binancefuture.com/fapi/v1/ticker/24hr?symbol={symbol.replace('/', '')}")
-    resp = requests.get(url=f"https://fapi.binance.com/fapi/v1/ticker/24hr?symbol={symbol.replace('/', '')}")
+    resp = requests.get(url=f"https://fapi.binance.us/fapi/v1/ticker/24hr?symbol={symbol.replace('/', '')}")
 
     
     # Print the response content for debugging
