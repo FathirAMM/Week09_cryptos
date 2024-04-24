@@ -41,11 +41,13 @@ exchange = ccxt.binance({
 })
 
 # Set Binance in testnet mode
-exchange.setSandboxMode(True)  # Enable testnet mode
+# exchange.setSandboxMode(True)  # Enable testnet mode
 
 @st.cache_data
 def fetch_last_price(symbol):
-    resp = requests.get(url=f"https://testnet.binancefuture.com/fapi/v1/ticker/24hr?symbol={symbol.replace('/', '')}")
+    #resp = requests.get(url=f"https://testnet.binancefuture.com/fapi/v1/ticker/24hr?symbol={symbol.replace('/', '')}")
+    resp = requests.get(url=f"https://fapi.binance.com/fapi/v1/ticker/24hr?symbol={symbol.replace('/', '')}")
+
     
     # Print the response content for debugging
     print("Response content:", resp.text)
