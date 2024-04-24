@@ -44,6 +44,7 @@ exchange = ccxt.binance({
 
 # Set Binance in testnet mode
 exchange.setSandboxMode(False)  # Enable testnet mode
+print("testing connection......")
 
 @st.cache_data
 def fetch_last_price(symbol):
