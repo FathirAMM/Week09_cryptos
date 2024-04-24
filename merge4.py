@@ -34,14 +34,14 @@ exchange = ccxt.binance({
     "secret": binance_api_secret,  # Use the user-inputted API secret
     "enableRateLimit": False,  # Not Enable rate limiting for API requests #True
     "options": {
-        "defaultType": "future",  # Use "future" for futures contracts
+        "defaultType": "futures",  # Use "future" for futures contracts
         #"url": {"api": "https://testnet.binancefuture.com"},  # Set testnet API URL
         "url": {"api": "https://fapi.binance.com"},  # Set testnet API URL
     }
 })
 
 # Set Binance in testnet mode
-# exchange.setSandboxMode(True)  # Enable testnet mode
+exchange.setSandboxMode(False)  # Enable testnet mode
 
 @st.cache_data
 def fetch_last_price(symbol):
