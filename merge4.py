@@ -30,8 +30,10 @@ binance_api_secret = st.sidebar.text_input("Enter your Binance API Secret:", typ
 exchange = ccxt.binance({
     #"testnet": True,  # Use Binance futures testnet
     "testnet": False,  # Use Binance futures testnet
-    "apiKey": binance_api_key,  # Use the user-inputted API key
-    "secret": binance_api_secret,  # Use the user-inputted API secret
+    #"apiKey": binance_api_key,  # Use the user-inputted API key
+    #"secret": binance_api_secret,  # Use the user-inputted API secret
+    "apiKey": "3HqQZGFeeVtNjQUPx8ef8ks5AySrheRRKMEgvCHbaz2xWsNHuDYlS8xYLHsNnP4Q",  # Use the user-inputted API key
+    "secret": "kj9xpd31uMcVLHqAejct6Bm9dIwnYuqov7iw66F714CS6GqmwFL2LjVTTRXCw0oU",  # Use the user-inputted API secret
     "enableRateLimit": False,  # Not Enable rate limiting for API requests #True
     "options": {
         "defaultType": "futures",  # Use "future" for futures contracts
