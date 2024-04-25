@@ -9,8 +9,6 @@ from scipy.signal import find_peaks
 import itertools
 import pandas as pd
 
-from binance import Client
-client = Client(tld='us')
 
 # Use HTML formatting to include the Binance icon
 title_html = f"""
